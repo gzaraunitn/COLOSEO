@@ -1,8 +1,6 @@
 #!/bin/bash
 
-eval "$(conda shell.bash hook)"
-conda activate exp
-
+# hmdb-ucf / ucf-olympics stage 1
 python3 ../main.py  \
   --source_dataset ../txt/hmdb_ucf/hmdb_train_source.txt \
   --target_dataset ../txt/hmdb_ucf/ucf_train_target.txt \
@@ -36,6 +34,7 @@ python3 ../main.py  \
   --clip_aggregation mlp \
   --wandb
 
+# epic-kitchens stage 1
 python3 ../main.py  \
   --source_dataset ../txt/epic-kitchens/D1_train_source.txt \
   --target_dataset ../txt/epic-kitchens/D2_train_target.txt \
@@ -69,7 +68,7 @@ python3 ../main.py  \
   --clip_aggregation mlp \
   --wandb
 
-
+# hmdb-ucf / ucf-olympics stage 2
 python3 ../main.py  \
   --source_dataset ../txt/hmdb_ucf/hmdb_train_source.txt \
   --target_dataset ../txt/hmdb_ucf/ucf_train_target.txt \
@@ -107,6 +106,7 @@ python3 ../main.py  \
   --k 6 \
   --wandb
 
+# epic-kitchens stage 1
 python3 ../main.py  \
   --source_dataset ../txt/epic-kitchens-clean/D1_train_source.txt \
   --target_dataset ../txt/epic-kitchens-clean/D2_train_target.txt \
@@ -145,5 +145,3 @@ python3 ../main.py  \
   --clip_aggregation mlp \
   --k 8 \
   --wandb
-
-conda deactivate
