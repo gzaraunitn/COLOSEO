@@ -116,9 +116,6 @@ def validate_args(args):
         assert (
             args.rejection_metric == "similarity"
         ), "Only similarity metric can be used with SimCLR!"
-    if args.simclr_loss_weight_target:
-        if args.stage == 1:
-            print("Warning: using target for simclr in stage 1!")
 
     if args.aug_based_simclr_source:
         assert len(args.source_augmentations), "No source augmentation provided!"
